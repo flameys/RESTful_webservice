@@ -1,13 +1,13 @@
 <component name="libraryTable">
-  <library name="Maven: org.glassfish.jersey.media:jersey-media-jaxb:2.31">
+  <library name="Maven: jakarta.activation:jakarta.activation-api:1.2.1">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/media/jersey-media-jaxb/2.31/jersey-media-jaxb-2.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/media/jersey-media-jaxb/2.31/jersey-media-jaxb-2.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/media/jersey-media-jaxb/2.31/jersey-media-jaxb-2.31-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

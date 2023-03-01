@@ -2,10 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        * {
+           box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            font-family: SansSerif;
+        }
+
+        a:link {
+            color: #C0C0C0;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #FFD700;
+            background-color: transparent;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body>
-    <h2>Jersey RESTful Web Application!</h2>
-    <p><a href="api/hello-world">Jersey resource</a>
+<body style="background-color:#424242;">
+
+    <div class="topnav">
+        <h3>Wilujeng Sedaya Mawon</h3>
+    </div>
+
+
+    <div class="content">
+        <a href="html/LogIn.html" > <button class = "button" ><b>LOG IN</b></button> </a>
+        <img src="../../../pictures/kratonJogja.png" class="center" alt="schoollogo" style="width: 400px; height: 275px"/>
+
+
+    </div>
+
+    <div class="grid-container">
+
+        <figure class="left-column">
+            <img src="../../../pictures/joged.jpg" alt="Dansopleiding" class="gallery__img" usemap= #richtingdans>
+            <map name="richtingdans">
+                <area shape="default" alt="dans" href="html/dansrichting.html" >
+
+            </map>
+
+        </figure>
+
+        <figure class="middle-column">
+           <!-- <img src="../../../200px-Hanacaraka_legend_1.png" alt="Taalopleiding" style="object-fit: cover"/>-->
+            <img src="../../../pictures/381px-Mss_jav_28_f013v.png" alt="Taalopleiding" class="gallery__img"/>
+        </figure>
+
+        <figure class="right-column">
+            <img src="../../../pictures/Traditional_indonesian_instruments02.jpg" alt="Gamelanopleiding" class="gallery__img"/>
+        </figure>
+
+    </div>
+
+
 </body>
 </html>
