@@ -8,6 +8,15 @@
     text-decoration: none;
 }
 
+.topnav-pages {
+    overflow: hidden;
+    background-color: #424242;
+    display: block;
+    color: #FFD700;
+    text-align: center;
+    text-decoration: none;
+}
+
 .content{
     background-color: #424242;
     color: #FFD700;
@@ -106,12 +115,20 @@
     padding: 50px;
     font-size: 30px;
     text-align: center;
+
 }
+.dashboardgrid-item:hover{
+
+    opacity: 0.6;
+}
+
 .profiel-container {
     text-align: center;
-    padding: 80px;
+    padding-top: 80px;
     margin: 0;
+
     width: 300px;
+    height: auto;
 
 }
 
@@ -122,6 +139,35 @@
     border-radius: 50%;
     border: 3px solid #A3850E;
     object-fit: cover;
+}
+
+.table {
+    border-collapse: collapse;
+    border: 1px solid #FFD700;
+    width: 100%;
+}
+
+.th{
+    text-align: center;
+    border: 1px solid #FFD700;
+    color: #FFD700;
+}
+
+.td{
+    text-align: center;
+    border: 1px solid #FFD700;
+    color: #FFD700;
+}
+
+.terug {
+    float: left;
+    background-color: transparent;
+    color: #FFD700;
+    font-size: 28px;
+}
+
+.terug:hover{
+    color: ghostwhite;
 }
 
 
