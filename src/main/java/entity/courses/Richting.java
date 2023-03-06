@@ -38,4 +38,13 @@ public class Richting {
     public void setOpleiding(Opleiding opleiding) {
         this.opleiding = opleiding;
     }
+
+    @Override
+    public String toString() {
+        return "Richting{" +
+                "id=" + id +
+                ", naam='" + naam + '\'' +
+                ", opleiding=" + opleiding +
+                '}';
+    }
 }
