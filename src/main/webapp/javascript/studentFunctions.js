@@ -1,3 +1,4 @@
+/*
 alleStudenten()
 
 async function alleStudenten(){
@@ -6,7 +7,7 @@ async function alleStudenten(){
 
 
     const data = await response.json();
-    /*data.forEach(country=>{
+    /!*data.forEach(country=>{
         /!*const countryList = `<li>${country.name.official}, ${country.capital}</li>`;*!/
 
         //receive an unordered list in bullet points
@@ -14,24 +15,47 @@ async function alleStudenten(){
 
         //receive a numbered ordered list
         document.querySelector('ol').insertAdjacentHTML('beforeend', countryList);
-    });*/
+    });*!/
     //document.querySelector('p').textContent = data;
     console.log(data)
 
 }
+*/
+
+alleOpleidingen()
+
+async function alleOpleidingen(){
+    const response = await fetch('/RESTful_webservice_war_exploded/api/opleidingen/alle-opleidingen');
+    document.getElementById('opleiding');
+  /*  console.log(response);*/
+
+    const data = await response.json();
 
 
-/*
-function alleStudenten(){
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let studentenList = JSON.parse(this.responseText);
-            console.log(studentenList);
+    /*data.forEach(opleiding =>{
+        let displayOpl = `<li>${opleiding.naam}</li>`
+        document.querySelector('ul').insertAdjacentHTML('beforeend', displayOpl);
+    });
+*/
+    var table = document.getElementById("vulling");
+    table.innerHTML="";
+    var tr="";
+    data.forEach(opl=>{
+        tr+='<tr>';
+        tr+='<td>'+opl.naam+'</td>'
+        tr+='</tr>'
+
+    })
+    table.innerHTML+=tr;
+
+    console.log(data);
+}
+
+async function alleRichtingenVanOpleiding(){
+    const response = await fetch('/RESTful_webservice_war_exploded/api/opleidingen/alle-richtingen');
+    const data = await response.json();
+    console.log(data);
+}
 
 
-    };
 
-    xhttp.open("GET", "/api/studenten/actieve-diensten", true);
-    xhttp.send();
-}*/

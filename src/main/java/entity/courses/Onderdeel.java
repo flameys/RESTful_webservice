@@ -53,5 +53,13 @@ public class Onderdeel {
         this.docent = docent;
     }
 
-
+    @Override
+    public String toString() {
+        return "Onderdeel{" +
+                "id=" + id +
+                ", naam='" + naam + '\'' +
+                ", module=" + module +
+                ", docent=" + docent +
+                '}';
+    }
 }

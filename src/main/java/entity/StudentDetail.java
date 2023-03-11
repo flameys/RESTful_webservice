@@ -59,4 +59,15 @@ public class StudentDetail {
     public void setGeboorteDatum(String geboorteDatum) {
         this.geboorteDatum = geboorteDatum;
     }
+
+    @Override
+    public String toString() {
+        return "StudentDetail{" +
+                "id=" + id +
+                ", enrolledDate='" + enrolledDate + '\'' +
+                ", adress='" + adress + '\'' +
+                ", telefoon_nummer='" + telefoon_nummer + '\'' +
+                ", geboorteDatum='" + geboorteDatum + '\'' +
+                '}';
+    }
 }

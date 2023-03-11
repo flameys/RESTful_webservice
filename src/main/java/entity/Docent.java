@@ -59,4 +59,15 @@ public class Docent {
     public void setDatumIndienst(String datumIndienst) {
         this.datumIndienst = datumIndienst;
     }
+
+    @Override
+    public String toString() {
+        return "Docent{" +
+                "id=" + id +
+                ", naam='" + naam + '\'' +
+                ", voornaam='" + voornaam + '\'' +
+                ", categorie='" + categorie + '\'' +
+                ", datumIndienst='" + datumIndienst + '\'' +
+                '}';
+    }
 }

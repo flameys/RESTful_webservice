@@ -21,7 +21,7 @@ public class ModuleDuur {
     private Richting richting;
 
     @OneToMany(mappedBy = "module")
-    private List<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
+    private List<Onderdeel> onderdelen = new ArrayList<>();
 
     public int getId() {return id;}
 
@@ -73,4 +73,14 @@ public class ModuleDuur {
         this.onderdelen.remove(onderdeel);
     }
 
+    @Override
+    public String toString() {
+        return "ModuleDuur{" +
+                "id=" + id +
+                ", naam='" + naam + '\'' +
+                ", duur='" + duur + '\'' +
+                ", richting=" + richting +
+                ", onderdelen=" + onderdelen +
+                '}';
+    }
 }

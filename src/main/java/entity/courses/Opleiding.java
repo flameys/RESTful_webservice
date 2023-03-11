@@ -25,12 +25,11 @@ public class Opleiding {
         this.naam = naam;
     }
 
-
     @Override
     public String toString() {
         return "Opleiding{" +
                 "id=" + id +
-                ", naam='" + naam +
+                ", naam='" + naam + '\'' +
                 '}';
     }
 }
