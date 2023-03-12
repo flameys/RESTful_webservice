@@ -7,7 +7,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/students")
+@Path("/studenten")
 public class StudentController {
 
     private final StudentService studentService = new StudentService();

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Studenten</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -13,6 +14,22 @@
         body{
             margin: 0;
             font-family: SansSerif;
+        }
+        table, th, td {
+            border-collapse: collapse;
+        }
+        tr {
+            border-bottom: 1px solid #FFD700;
+        }
+        tr:hover{background-color: #FFD700;}
+        td{
+            text-align: center;
+        }
+        th, td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 25px;
+            padding-right: 40px;
         }
     </style>
 
@@ -23,11 +40,24 @@
         <h3>STUDENTEN</h3>
     </div>
 
-    <p>
+    <h1>Gegevens</h1>
 
-    </p>
+    <table style="width: 100%">
+        <thead>
+        <tr>
+            <th>Voornaam</th>
+           <th>Achternaam</th>
+            <th>Student ID</th>
+        </tr>
+        </thead>
+        <tbody id="stuVulling">
 
-    <script src="../javascript/studentFunctions.js"></script>
+        </tbody>
+
+
+    </table>
+
+    <script src="../javascript/studentAPI.js"></script>
 
 </body>
 </html>

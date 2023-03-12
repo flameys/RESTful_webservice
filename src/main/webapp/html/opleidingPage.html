@@ -15,8 +15,20 @@
             font-family: SansSerif;
         }
         table, th, td {
-            border: 1px solid black;
             border-collapse: collapse;
+        }
+        tr {
+            border-bottom: 1px solid #FFD700;
+        }
+        tr:hover{background-color: #FFD700;}
+        td{
+            text-align: center;
+        }
+        th, td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 25px;
+            padding-right: 40px;
         }
     </style>
 
@@ -27,22 +39,21 @@
         <h3>OPLEIDINGEN</h3>
     </div>
 
-    <ul></ul>
 
-   <!-- <table style="width: auto">
+    <table style="width: auto">
         <thead>
             <tr>
                 <th>Opleiding</th>
-            &lt;!&ndash; <th colspan="3">Richtingen</th>&ndash;&gt;
+            <!-- <th colspan="3">Richtingen</th>-->
             </tr>
         </thead>
-        <tbody id="vulling">
+        <tbody id="oplVulling">
 
         </tbody>
 
 
-    </table>-->
+    </table>
 
-    <script src="../javascript/studentFunctions.js"></script>
+    <script src="../javascript/opleidingAPI.js"></script>
 </body>
 </html>

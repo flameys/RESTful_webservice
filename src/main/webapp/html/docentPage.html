@@ -14,7 +14,25 @@
             margin: 0;
             font-family: SansSerif;
         }
+        table, th, td {
+            border-collapse: collapse;
+        }
+        tr {
+            border-bottom: 1px solid #FFD700;
+        }
+        tr:hover{background-color: #FFD700;}
+        td{
+            text-align: center;
+        }
+        th, td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 25px;
+            padding-right: 40px;
+        }
+
     </style>
+
 </head>
 <body>
     <div class="topnav-pages">
@@ -22,5 +40,26 @@
         <h3>DOCENTEN</h3>
     </div>
 
+    <h1>Gegevens</h1>
+
+    <table style="width: 100%">
+        <thead>
+        <tr>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+            <th>In dienst</th>
+            <th>Categorie</th>
+        </tr>
+        </thead>
+
+        <tbody id="docVulling">
+
+        </tbody>
+
+
+    </table>
+
+
+    <script src="../javascript/docentAPI.js"></script>
 </body>
 </html>

@@ -141,23 +141,24 @@
     object-fit: cover;
 }
 
-.table {
+table, th, td {
     border-collapse: collapse;
-    border: 1px solid #FFD700;
-    width: 100%;
+}
+tr {
+    border-bottom: 1px solid #FFD700;
+}
+tr:hover{background-color: #FFD700;}
+
+td{
+    text-align: center;
+}
+th, td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 40px;
 }
 
-.th{
-    text-align: center;
-    border: 1px solid #FFD700;
-    color: #FFD700;
-}
-
-.td{
-    text-align: center;
-    border: 1px solid #FFD700;
-    color: #FFD700;
-}
 
 .terug {
     float: left;
