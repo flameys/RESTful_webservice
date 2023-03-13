@@ -45,7 +45,7 @@
 
     <div id="id01" class="modal">
 
-        <form class="modal-content animate" action="html/dashboard.html" target="_blank"> <!--action="/action_page.php" method="post"-->
+        <form class="modal-content animate" action="html/dashboard.html" target="_blank" onsubmit="this.submit(); this.reset(); return false;"> <!--action="/action_page.php" method="post"-->
 
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close">&times;</span>
@@ -60,7 +60,7 @@
                 <input type="password" id="psw" placeholder="Enter Password" name="psw" >
 
                 <!-- <a href="html/dashboard.html" target="_blank" > <button class = "submitbutton" ><b>SUBMIT</b></button> </a>-->
-                <button class = "submitbutton" onclick="document.getElementById('id01').style.display='none'"><b>SUBMIT</b></button>
+                <button type="submit" class = "submitbutton" onclick="document.getElementById('id01').style.display='none'"><b>SUBMIT</b></button>
             </div>
 
         </form>

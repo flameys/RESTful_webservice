@@ -30,4 +30,12 @@ public class DocentController {
         Docent docent = docentService.getDocentById(id);
         return onderdeelService.getOnderdeelNamenByDocent(docent.getId());
     }
+
+    @Path("/insert-docent")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Docent insertDocent(Docent aDocent){return docentService.insertDocent(aDocent);}
+
+
 }

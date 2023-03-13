@@ -26,3 +26,26 @@ async function alleDocenten(){
     console.log(data)
 
 }
+
+insertDocent()
+async function insertDocent(){
+    const formEl = document.querySelector('form');
+    formEl.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const formData = new FormData(formEl)
+        const data = Object.fromEntries(formData)
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+        fetch('/RESTful_webservice_war_exploded/api/docenten/insert-docent', options)
+            .then(response => response.json())
+            .then(data => console.log(data))
+    })
+
+}

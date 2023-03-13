@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Docenten</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/login.css">
     <style>
         * {
             box-sizing: border-box;
@@ -58,6 +59,45 @@
 
 
     </table>
+
+    <div class="container">
+        <button class="button"   onclick="document.getElementById('addDocent').style.display='block'"><b>&#43;DOCENT</b></button>
+    </div>
+
+    <div id="addDocent" class="modal">
+
+        <form class="modal-content animate"> <!--action="/action_page.php" -->
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('addDocent').style.display='none'" class="close" title="Close">&times;</span>
+                <img src="../pics/gunungan.png" id="loginfoto" alt="gunungan" class="img" >
+            </div>
+
+            <div class="inputcontainer">
+
+                <label for="id" ><b>id</b></label>
+                <input type=number id = "id"  name="id"  >
+
+                <label for="voornaam" ><b>Voornaam</b></label>
+                <input type="text" id = "voornaam"  name="voornaam"  >
+
+                <label for="naam"><b>Achternaam</b></label>
+                <input type="text" id="naam"  name="naam" >
+
+                <label for="datumIndienst"><b>Datum Indienst</b></label>
+                <input type="text" id="datumIndienst"  name="datumIndienst" >
+
+                <label for="categorie"><b>Categorie</b></label>
+                <input type="text" id="categorie"  name="categorie" >
+
+                <button id="submit" class="submitbutton" type="submit" onclick="document.getElementById('addDocent').style.display='none'">Submit</button>
+
+
+
+            </div>
+
+        </form>
+    </div>
 
 
     <script src="../javascript/docentAPI.js"></script>

@@ -25,6 +25,8 @@ public class StudentService {
     public Student getStudentByName(String studentVoornaam, String studentAchternaam){
         return repository.getStudentByName(studentVoornaam, studentAchternaam);}
 
+    public Student getStudentById(int studentId){return repository.getStudentById(studentId);}
+
     public List<Onderdeel> getOnderdeelVanStudent(String stVoornaam, String stAchternaam){
         return this.repository.getStudentOnderdeel(stVoornaam, stAchternaam);
     }

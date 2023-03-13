@@ -1,5 +1,6 @@
 package repository;
 
+import entity.Docent;
 import entity.Student;
 import entity.courses.Onderdeel;
 
@@ -44,6 +45,14 @@ public class StudentRepository {
                 "and s.achternaam = :achternaam");
         query.setParameter("voornaam", studentVoornaam);
         query.setParameter("achternaam", studentAchternaam);
+        Student result = (Student) query.getSingleResult();
+
+        return result;
+    }
+
+    public Student getStudentById(int studentId) {
+        Query query = entityManager.createQuery("select s from Student s where s.id = :id ");
+        query.setParameter("id", studentId);
         Student result = (Student) query.getSingleResult();
 
         return result;

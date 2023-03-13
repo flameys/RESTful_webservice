@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Docent {
     @Id
-    @GeneratedValue
+    @GeneratedValue //(strategy= GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)
