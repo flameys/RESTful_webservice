@@ -21,6 +21,8 @@ public class DocentService {
         return repository.getDocenten();
     }
 
+    public Docent getDocentById(int docentId){return repository.getDocentById(docentId);}
+
     public Docent getSpecificDocent(String voornaam, String achternaam){return repository.getDocentByName(voornaam, achternaam);}
 
     public void deleteDocent(Docent docent){

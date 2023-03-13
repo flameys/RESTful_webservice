@@ -46,6 +46,14 @@ public class DocentRepository {
         return result;
     }
 
+    public Docent getDocentById(int docentId) {
+        Query query = entityManager.createQuery("select d from Docent d where d.id = :id ");
+        query.setParameter("id", docentId);
+        Docent result = (Docent) query.getSingleResult();
+
+        return result;
+    }
+
 // UPDATE
 
     public int updateDocent(String achternaam, String voornaam, String datum, int docentId) {

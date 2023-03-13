@@ -58,8 +58,6 @@ public class Onderdeel {
         return "Onderdeel{" +
                 "id=" + id +
                 ", naam='" + naam + '\'' +
-                ", module=" + module +
-                ", docent=" + docent +
                 '}';
     }
 }

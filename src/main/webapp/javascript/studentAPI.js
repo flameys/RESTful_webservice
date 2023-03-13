@@ -15,7 +15,9 @@ async function alleStudenten(){
     var tr="";
     data.forEach(student=>{
         tr+='<tr>';
-        tr+='<td>'+ student.voornaam +'</td>' + '<td>'+student.achternaam+'</td>' + '<td>'+student.studentID +'</td>'
+        tr+='<td>'+ student.voornaam +'</td>' + '<td>'+student.achternaam+'</td>' + '<td>'+student.studentID +'</td>' +
+            '<td>'+student.studentDetail.geboorteDatum+'</td>' +  '<td>'+student.studentDetail.adress+'</td>' + '<td>'+student.studentDetail.telefoon_nummer+'</td>' +
+            '<td>'+' <a class="terug" style="text-decoration: none; " href="../html/editStudent.html" title="Edit">&#10140;</a>'+'</td>'
         tr+='</tr>'
 
     })

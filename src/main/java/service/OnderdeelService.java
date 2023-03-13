@@ -25,6 +25,7 @@ public class OnderdeelService {
 
     public List<Onderdeel> getOnderdelenByDocent(int docentId){return repository.getOnderdelenByDocent(docentId);}
 
+    public List<Onderdeel> getOnderdeelNamenByDocent(int id){return repository.getOnderdeelNamenByDocent(id);}
     public int deleteOnderdeel(String onderdeelNaam){ return repository.deleteOnderdeelByName(onderdeelNaam);}
 
 }

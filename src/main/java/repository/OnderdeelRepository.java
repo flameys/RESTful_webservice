@@ -51,6 +51,13 @@ public class OnderdeelRepository {
         return alleOnderdelen;
     }
 
+    public List<Onderdeel> getOnderdeelNamenByDocent(int docentId){
+        Query query = entityManager.createQuery("select o.naam from Onderdeel o inner join o.docent d where d.id = :id");
+        query.setParameter("id", docentId);
+        List<Onderdeel> alleOnderdelen = query.getResultList();
+        return alleOnderdelen;
+    }
+
 // UPDATE
 
     // DELETE ALL RECORDS
