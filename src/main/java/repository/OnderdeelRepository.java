@@ -1,5 +1,6 @@
 package repository;
 
+import entity.Docent;
 import entity.courses.Onderdeel;
 
 import javax.persistence.EntityManager;
@@ -59,6 +60,40 @@ public class OnderdeelRepository {
     }
 
 // UPDATE
+
+    public int removeDocent(String onderdeelNaam){
+        int rowsUpdated;
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("UPDATE Onderdeel o SET o.docent = NULL " +
+                "where o.naam = :onderdeel ");
+        query.setParameter("onderdeel", onderdeelNaam);
+        rowsUpdated = query.executeUpdate();
+        entityManager.getTransaction().commit();
+
+        return rowsUpdated;
+    }
+
+    public int addDocent(int docentId, String onderdeelNaam){
+        int rowsUpdated;
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("UPDATE Onderdeel o SET o.docent = :id " +
+                "where o.naam = :onderdeel ");
+        query.setParameter("id", docentId);
+        query.setParameter("onderdeel", onderdeelNaam);
+        rowsUpdated = query.executeUpdate();
+        entityManager.getTransaction().commit();
+
+        return rowsUpdated;
+    }
+
+    public Onderdeel add1Docent(Onderdeel addDocent){
+        entityManager.getTransaction().begin();
+        entityManager.merge(addDocent);
+        entityManager.getTransaction().commit();
+
+        return addDocent;
+    }
+
 
     // DELETE ALL RECORDS
     public int deleteAllOnderdelen(){

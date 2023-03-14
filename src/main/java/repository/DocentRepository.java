@@ -95,17 +95,17 @@ public class DocentRepository {
 
     }
 
-   /* public int deleteDocentByName(int docentId) {
+    public int deleteDocentById(int docentId) {
         int rowsDeleted;
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("DELETE o.docent from Onderdeel o");
-        query.setParameter("voornaam", docentNaam);
+        Query query = entityManager.createQuery("DELETE FROM Docent d WHERE d.id = :id");
+        query.setParameter("id", docentId);
         rowsDeleted = query.executeUpdate();
         System.out.println("Records deleted: " + rowsDeleted);
         entityManager.getTransaction().commit();
         return rowsDeleted;
 
-    }*/
+    }
 
     // DELETE ENTITY OBJECT AND ITS OTHER ASSOCIATED ENTITY'S OBJECTS (that referenced them)
     public void deleteDocent(Docent docent) {
@@ -119,8 +119,6 @@ public class DocentRepository {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-
-
     }
 
 }

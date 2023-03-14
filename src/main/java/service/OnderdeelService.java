@@ -28,4 +28,10 @@ public class OnderdeelService {
     public List<Onderdeel> getOnderdeelNamenByDocent(int id){return repository.getOnderdeelNamenByDocent(id);}
     public int deleteOnderdeel(String onderdeelNaam){ return repository.deleteOnderdeelByName(onderdeelNaam);}
 
+    public int removeDocent(String onderdeelNaam){ return repository.removeDocent(onderdeelNaam);}
+
+    public int addDocent(int idDocent, String naam){return repository.addDocent(idDocent, naam);}
+
+    public Onderdeel addDocent1(Onderdeel addDocent){return repository.add1Docent(addDocent);}
+
 }

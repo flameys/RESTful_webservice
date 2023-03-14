@@ -18,4 +18,6 @@ public class StudentDetailService {
 
     public int updateStudentdetailTel(String telno, int id){return studentDetailRepository.updateStudentDetailTelno(telno, id);}
 
+    public StudentDetail updateStudentDetail(StudentDetail detail){return studentDetailRepository.updateDetail(detail);}
+
 }

@@ -37,5 +37,12 @@ public class DocentController {
     @Produces(MediaType.APPLICATION_JSON)
     public Docent insertDocent(Docent aDocent){return docentService.insertDocent(aDocent);}
 
+    @Path("/delete-docent/{id}")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteDocent(@PathParam("id") int id){
+        Docent docent = docentService.getDocentById(id);
+        docentService.deleteDocent(docent);
+    }
 
 }

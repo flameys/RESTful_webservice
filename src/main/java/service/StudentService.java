@@ -30,8 +30,10 @@ public class StudentService {
     public List<Onderdeel> getOnderdeelVanStudent(String stVoornaam, String stAchternaam){
         return this.repository.getStudentOnderdeel(stVoornaam, stAchternaam);
     }
-    public int deleteStudent(String voornaam, String achternaam){
+    public int deleteStudentByNamen(String voornaam, String achternaam){
         return repository.deleteStudentByName(voornaam, achternaam);
     }
+
+    public void deleteStudent(Student student){repository.deleteStudent(student);}
 
 }

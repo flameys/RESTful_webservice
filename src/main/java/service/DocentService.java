@@ -29,6 +29,8 @@ public class DocentService {
         repository.deleteDocent(docent);
     }
 
+    public int deleteDocentById(int docentId){return repository.deleteDocentById(docentId);}
+
     public int changeDocent(String achternaam, String voornaam, String datum, int docentId){
         return repository.updateDocent(achternaam, voornaam, datum, docentId);
     }

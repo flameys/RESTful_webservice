@@ -73,6 +73,15 @@ public class StudentDetailRepository {
         return rowsUpdated;
     }
 
+    public StudentDetail updateDetail(StudentDetail detail){
+        entityManager.getTransaction().begin();
+        entityManager.merge(detail);
+        entityManager.getTransaction().commit();
+
+        return detail;
+    }
+
+
     public int deleteStudenDetailById(int id){
         int rowsDeleted;
         entityManager.getTransaction().begin();

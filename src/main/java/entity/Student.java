@@ -24,7 +24,7 @@ public class Student {
     @OneToOne(cascade = CascadeType.REMOVE)
     private StudentDetail studentDetail;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name = "student_onderdeel",
             joinColumns = { @JoinColumn(name = "fk_student") },
             inverseJoinColumns = { @JoinColumn(name = "fk_onderdeel")} )
