@@ -2,7 +2,7 @@ alleDocenten()
 
 async function alleDocenten(){
     const response = await fetch('/RESTful_webservice_war_exploded/api/docenten/alle-docenten');
-    console.log(response);
+    //console.log(response);
 
 
     const data = await response.json();
@@ -16,8 +16,11 @@ async function alleDocenten(){
     var tr="";
     data.forEach(docent=>{
         tr+='<tr>';
-        tr+=/*'<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>'*/
-            `<td>${docent.voornaam}</td>` + `<td>${docent.naam}</td>` + `<td>${docent.datumIndienst}</td>` + `<td>${docent.categorie}</td>`
+        tr+='<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>' +
+            /*`<td>${docent.voornaam}</td>` + `<td>${docent.naam}</td>` + `<td>${docent.datumIndienst}</td>` + `<td>${docent.categorie}</td>`*/
+                '<td>' +
+            '<button class="terug" style="outline: none" id=' + docent.id + ' type="button" ' + 'onclick="getOnderdelen(this.id)"' + ' title="Edit">&#10140;</button>' +
+                    '</td>'
         tr+='</tr>'
 
     })
@@ -25,6 +28,21 @@ async function alleDocenten(){
 
     console.log(data)
 
+}
+
+async function getOnderdelen(id){
+  // window.location.href = "../html/editDocent.html";
+    const api = '/RESTful_webservice_war_exploded/api/docenten/docent-onderdelen/' + id;
+    const response = await fetch(api);
+    //console.log(response);
+
+
+    const data = await response.json();
+    /*data.forEach(onderdeel =>{
+        // let displayOnderdelen= `<li>${onderdeel.naam}</li>`
+        document.getElementById('docentonderdelenlist').insertAdjacentHTML('beforeend', onderdeel);
+    });*/
+    console.log(data)
 }
 
 insertDocent()

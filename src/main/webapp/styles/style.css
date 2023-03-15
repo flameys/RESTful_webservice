@@ -76,6 +76,56 @@
     font-size: 30px;
 }
 
+.grid2-container{
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-template-rows: 200px;
+    gap: 10px;
+    background-color: #424242;
+
+}
+
+.grid2-container >div{
+
+    padding: 20px 0;
+    /*font-size: 30px;*/
+}
+
+
+.leftSolo-column{
+    grid-area: 1/1/span 1/ span 1;
+
+}
+.rightSolo-column{
+    grid-area: 1/2/span 1/ span 5;
+
+}
+
+.leftYogya-column{
+    grid-area: 1/2/span 1/ span 1;
+
+}
+.right1-column{
+    grid-area: 1/3/span 1/span 5;
+}
+
+
+.leftBali-column{
+    grid-area: 1/3/span 1/ span 1;
+
+}
+
+.rightBali-column{
+    grid-area: 1/4/span 1/span 5;
+}
+
+.gallery__img1 {
+    border: 3px solid #C7A700;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .gallery__img {
     border: 1px  solid #FFD700;
     box-shadow: 5px 3px 18px 4px #A3850E;
@@ -100,6 +150,35 @@
     margin-left: 300px;
     height: 695px;
 }
+
+.dans-content{
+    width: auto;
+    margin: 15px ;
+
+    border-bottom: 1px solid #C7A700;
+   border-bottom-style: outset;
+    /*border: 1px solid #4CAF50;*/
+    color: #C7A700;
+}
+
+/*.dans-content:hover{
+
+    opacity: 0.7;
+}*/
+
+
+
+.dans-bali-content{
+    width: auto;
+    margin: 15px ;
+
+    /*border: 1px solid #4CAF50;*/
+    color: #C7A700;
+}
+
+/*.dans-bali-content:hover{
+    opacity: 0.8;
+}*/
 
 .dashboardgrid-container {
     display: grid;
@@ -170,6 +249,12 @@ th, td {
 .terug:hover{
     color: ghostwhite;
 }
+
+.bar{
+    overflow: hidden;
+    display: block;
+}
+
 
 
 

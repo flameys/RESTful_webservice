@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Studenten</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/login.css">
 
     <style>
         * {
@@ -59,6 +60,49 @@
 
 
     </table>
+
+    <button class="button"   onclick="document.getElementById('addStudent').style.display='block'"><b>&#43; STUDENT</b></button>
+
+    <div id="addStudent" class="modal">
+
+        <form id="insertStudent" class="modal-content animate">
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('addStudent').style.display='none'" class="close" title="Close">&times;</span>
+                <img src="../pics/gunungan.png" id="loginfoto" alt="gunungan" class="img" >
+            </div>
+
+            <div class="inputcontainer">
+
+                <label for="voornaam" ><b>Voornaam</b></label>
+                <input type="text" id = "voornaam"  name="voornaam"  >
+
+                <label for="achternaam"><b>Achternaam</b></label>
+                <input type="text" id="achternaam"  name="achternaam" >
+
+                <label for="studentID"><b>Student ID</b></label>
+                <input type="text" id="studentID"  name="studentID" >
+
+                <label for="adres"><b>Adres</b></label>
+                <input type="text" id="adres"  name="studentDetail[adress]" >
+
+                <label for="geboortedatum"><b>Geboortedatum</b></label>
+                <input type="text" id="geboortedatum"  name="studentDetail[geboorteDatum]" >
+
+                <label for="telno"><b>Telefoonnummer</b></label>
+                <input type="text" id="telno"  name="studentDetail[telefoon_nummer]" >
+
+                <label for="datum"><b>Datum</b></label>
+                <input type="text" id="datum"  name="studentDetail[enrolledDate]" >
+
+                <button id="submit" class="submitbutton" type="submit" onclick="document.getElementById('addStudent').style.display='none'">Submit</button>
+
+
+
+            </div>
+
+        </form>
+    </div>
 
     <script src="../javascript/studentAPI.js"></script>
 

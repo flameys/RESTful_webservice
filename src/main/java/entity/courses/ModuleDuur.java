@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class ModuleDuur {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)

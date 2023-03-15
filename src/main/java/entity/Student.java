@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Student {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false)
@@ -21,7 +21,7 @@ public class Student {
     @Column(nullable = false, unique = true)
     private String studentID;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(cascade = CascadeType.ALL)
     private StudentDetail studentDetail;
 
     @ManyToMany(cascade = CascadeType.REMOVE)

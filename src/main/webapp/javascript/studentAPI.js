@@ -24,5 +24,26 @@ async function alleStudenten(){
     table.innerHTML+=tr;
 
     console.log(data)
+}
 
+insertStudent()
+async function insertStudent(){
+    const formEl = document.getElementById('insertStudent');
+    formEl.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const formData = new FormData(formEl)
+        const data = Object.fromEntries(formData)
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+        fetch('/RESTful_webservice_war_exploded/api/studenten/insert-student', options)
+            .then(response => response.json())
+            .then(data => console.log(data))
+    })
 }
