@@ -23,4 +23,6 @@ public class OpleidingService {
 
     public Opleiding getOneOpleiding(String oplNaam){return repository.getOpleiding(oplNaam);}
 
+    public Opleiding opleidingById(int idOpleiding){return repository.getOpleidingById(idOpleiding);}
+
 }

@@ -29,11 +29,25 @@ public class OpleidingController {
     }
 
 
+    @Path("/alle-richtingen/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Richting> alleRichtingenVanOpleiding(@PathParam("id") int opleidingId) {
+        return richtingService.getAllRichtingOpleiding(opleidingId);
+    }
+
     @Path("/alle-richtingen")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Richting> alleRichtingenVanOpleiding(int opleidingId) {
-        return richtingService.getAllRichtingOpleiding(opleidingId);
+    public List<Richting> alleRichtingen() {
+        return richtingService.getAllRichtingen();
+    }
+
+    @Path("/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Opleiding eenOpleiding(@PathParam("id") int opleidingId) {
+        return opleidingService.opleidingById(opleidingId);
     }
 
     @Path("/onderdelen-docent/{delete-id}")

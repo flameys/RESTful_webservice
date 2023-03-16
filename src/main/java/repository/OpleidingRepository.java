@@ -41,6 +41,13 @@ public class OpleidingRepository {
         return result;
     }
 
+    public Opleiding getOpleidingById(int oplId){
+        Query query = entityManager.createQuery("select o from Opleiding o where o.id = :id");
+        query.setParameter("id", oplId);
+        Opleiding result = (Opleiding) query.getSingleResult();
+        return result;
+    }
+
 // UPDATE
 
     // DELETE ALL RECORDS

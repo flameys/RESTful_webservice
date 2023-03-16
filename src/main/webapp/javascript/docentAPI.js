@@ -19,7 +19,7 @@ async function alleDocenten(){
         tr+='<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>' +
             /*`<td>${docent.voornaam}</td>` + `<td>${docent.naam}</td>` + `<td>${docent.datumIndienst}</td>` + `<td>${docent.categorie}</td>`*/
                 '<td>' +
-            '<button class="terug" style="outline: none" id=' + docent.id + ' type="button" ' + 'onclick="getOnderdelen(this.id)"' + ' title="Edit">&#10140;</button>' +
+            '<button class="terug" style="border: none" id=' + docent.id + ' type="button" ' + 'onclick="getOnderdelen(this.id)"' + ' title="Edit">&#10140;</button>' +
                     '</td>'
         tr+='</tr>'
 

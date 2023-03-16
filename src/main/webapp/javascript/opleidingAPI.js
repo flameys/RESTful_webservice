@@ -27,13 +27,7 @@ async function alleOpleidingen(){
     console.log(data);
 }
 
-/*
-async function alleRichtingenVanOpleiding(){
-    const response = await fetch('/RESTful_webservice_war_exploded/api/opleidingen/alle-richtingen');
-    const data = await response.json();
-    console.log(data);
-}
-*/
+
 
 
 
