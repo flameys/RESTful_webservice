@@ -16,7 +16,10 @@ async function alleDocenten(){
     var tr="";
     data.forEach(docent=>{
         tr+='<tr>';
-        tr+='<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>' +
+        tr+='<td>' +
+            '<button id=' + docent.id + ' type="button" ' + 'onclick="deleteDocent(this.id)"' + ' >Delete</button>' +
+            '</td>' +
+            '<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>' +
 
                 '<td>' +
             '<button class="terug" style="border: none" id=' + docent.id + ' type="button" ' + 'onclick="getOnderdelen(this.id)"' + ' title="Edit">&#10140;</button>' +
@@ -31,21 +34,27 @@ async function alleDocenten(){
 }
 
 async function getOnderdelen(id){
-    window.location.href = "../html/editDocent.html";
+
+    // window.location.href = "../html/editDocent.html";
     const api = '/RESTful_webservice_war_exploded/api/docenten/docent-onderdelen/' + id;
     const response = await fetch(api);
     //console.log(response);
 
 
     const data = await response.json();
-    for (let i = 0; i < data.length; i++) {
-        document.querySelector('ul').insertAdjacentHTML('beforeend', data[i]);
-    }
-    /*data.forEach(onderdeel =>{
-        // let displayOnderdelen= `<li>${onderdeel.naam}</li>`
-        document.getElementById('docentonderdelenlist').insertAdjacentHTML('beforeend', onderdeel);
-    });*/
     console.log(data)
+    const result = JSON.stringify(data);
+    console.log(result)
+
+    document.querySelector('ul').innerHTML = result;
+    /*for (let i = 0; i < result; i++) {
+        document.querySelector('ul').innerHTML = ;
+    }*/
+    /*data.forEach(onderdeel =>{
+        let displayOnderdelen= `<li>${onderdeel.naam}</li>`
+        document.querySelector('ul').insertAdjacentHTML('beforeend', displayOnderdelen);
+    });*/
+
 }
 
 insertDocent()
@@ -68,5 +77,23 @@ async function insertDocent(){
             .then(response => response.json())
             .then(data => console.log(data))
     })
+
+}
+
+async function deleteDocent(id){
+
+    const options = {
+        method: "DELETE"
+    };
+
+    fetch('/RESTful_webservice_war_exploded/api/docenten/delete-docent/'+ id, options)
+        .then(response =>{
+            if (!response.ok){
+                console.log('Problem')
+                return;
+            }
+            response.json;
+        })
+        .then(data => console.log('Succes!!'))
 
 }

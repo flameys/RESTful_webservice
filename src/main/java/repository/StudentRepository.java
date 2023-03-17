@@ -122,8 +122,8 @@ public class StudentRepository {
     public void deleteStudent(Student student){
         try {
             entityManager.getTransaction().begin();
-            System.out.println("Student record: " + student.getVoornaam() + " " +
-                    student.getAchternaam() + " " + "has been deleted.");
+           /* System.out.println("Student record: " + student.getVoornaam() + " " +
+                    student.getAchternaam() + " " + "has been deleted.");*/
             entityManager.remove(student);
             entityManager.getTransaction().commit();
         }

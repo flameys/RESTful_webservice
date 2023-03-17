@@ -42,6 +42,7 @@ public class DocentController {
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteDocent(@PathParam("id") int id){
         Docent docent = docentService.getDocentById(id);
+        onderdeelService.removeDocent(docent.getNaam());
         docentService.deleteDocent(docent);
     }
 
