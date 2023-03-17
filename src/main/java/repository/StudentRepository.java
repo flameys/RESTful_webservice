@@ -2,6 +2,7 @@ package repository;
 
 import entity.Docent;
 import entity.Student;
+import entity.StudentDetail;
 import entity.courses.Onderdeel;
 
 import javax.persistence.EntityManager;
@@ -70,7 +71,13 @@ public class StudentRepository {
 
 // UPDATE
 
+    public Student updateStudent(Student student){
+        entityManager.getTransaction().begin();
+        entityManager.merge(student);
+        entityManager.getTransaction().commit();
 
+        return student;
+    }
     // DELETE ALL RECORDS
     public int deleteAllStudents(){
         int rowsDeleted;

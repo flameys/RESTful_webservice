@@ -1,13 +1,11 @@
 package sr.unasat.RESTful_webservice;
 
 import entity.Docent;
+import entity.courses.ModuleDuur;
 import entity.courses.Onderdeel;
 import entity.courses.Opleiding;
 import entity.courses.Richting;
-import service.DocentService;
-import service.OnderdeelService;
-import service.OpleidingService;
-import service.RichtingService;
+import service.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -18,6 +16,7 @@ public class OpleidingController {
 
     private final OpleidingService opleidingService = new OpleidingService();
     private final RichtingService richtingService = new RichtingService();
+    private final ModuleService moduleService = new ModuleService();
     private final OnderdeelService onderdeelService = new OnderdeelService();
     private final DocentService docentService1 = new DocentService();
 
@@ -43,12 +42,11 @@ public class OpleidingController {
         return richtingService.getAllRichtingen();
     }
 
-    @Path("/{id}")
+    @Path("/alle-modules/{richting-id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Opleiding eenOpleiding(@PathParam("id") int opleidingId) {
-        return opleidingService.opleidingById(opleidingId);
-    }
+    public List<ModuleDuur> alleModules(@PathParam("richting-id") int richtingId) {
+        return moduleService.getModules(richtingId);    }
 
     @Path("/onderdelen-docent/{delete-id}")
     @DELETE

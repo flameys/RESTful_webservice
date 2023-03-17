@@ -17,7 +17,7 @@ async function alleDocenten(){
     data.forEach(docent=>{
         tr+='<tr>';
         tr+='<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>' +
-            /*`<td>${docent.voornaam}</td>` + `<td>${docent.naam}</td>` + `<td>${docent.datumIndienst}</td>` + `<td>${docent.categorie}</td>`*/
+
                 '<td>' +
             '<button class="terug" style="border: none" id=' + docent.id + ' type="button" ' + 'onclick="getOnderdelen(this.id)"' + ' title="Edit">&#10140;</button>' +
                     '</td>'
@@ -31,13 +31,16 @@ async function alleDocenten(){
 }
 
 async function getOnderdelen(id){
-  // window.location.href = "../html/editDocent.html";
+    window.location.href = "../html/editDocent.html";
     const api = '/RESTful_webservice_war_exploded/api/docenten/docent-onderdelen/' + id;
     const response = await fetch(api);
     //console.log(response);
 
 
     const data = await response.json();
+    for (let i = 0; i < data.length; i++) {
+        document.querySelector('ul').insertAdjacentHTML('beforeend', data[i]);
+    }
     /*data.forEach(onderdeel =>{
         // let displayOnderdelen= `<li>${onderdeel.naam}</li>`
         document.getElementById('docentonderdelenlist').insertAdjacentHTML('beforeend', onderdeel);

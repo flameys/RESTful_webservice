@@ -12,7 +12,11 @@ async function alleRichtingenVanOpleiding(){
     var tr="";
     data.forEach(richting=>{
         tr+='<tr>'
-        tr+='<td>' +richting.opleiding.naam+ '</td>' + '<td>' +richting.naam+ '</td>'
+        tr+='<td>' +richting.opleiding.naam+ '</td>' + '<td>' +richting.naam+ '</td>' +
+            '<td>' +
+            '<button class="terug" style="border: none" id=' + richting.id + ' type="button"' + ' title="More">&#10146;</button>' +
+            '</td>'
+
         tr+='</tr>'
 
     });

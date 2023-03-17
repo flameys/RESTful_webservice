@@ -34,6 +34,8 @@ public class StudentService {
         return repository.deleteStudentByName(voornaam, achternaam);
     }
 
+    public Student updateStudent(Student student){ return repository.updateStudent(student);}
+
     public void deleteStudent(Student student){repository.deleteStudent(student);}
 
 }

@@ -16,14 +16,35 @@ async function alleStudenten(){
     data.forEach(student=>{
         tr+='<tr>';
         tr+='<td>'+ student.voornaam +'</td>' + '<td>'+student.achternaam+'</td>' + '<td>'+student.studentID +'</td>' +
-            '<td>'+student.studentDetail.geboorteDatum+'</td>' +  '<td>'+student.studentDetail.adress+'</td>' + '<td>'+student.studentDetail.telefoon_nummer+'</td>' +
-            '<td>'+' <a class="terug" style="text-decoration: none; " href="../html/editStudent.html" title="Edit">&#10140;</a>'+'</td>'
+            '<td>'+student.studentDetail.geboorteDatum+'</td>' +  '<td>'+student.studentDetail.adress+ '</td>' + '<td>'+student.studentDetail.telefoon_nummer+'</td>' +
+            /*'<td>'+' <a class="terug" style="text-decoration: none; " href="../html/editStudent.html" title="Edit">&#10140;</a>'+'</td>'
+      */      '<td>' +
+            '<button class="terug" style="border: none" id=' + student.id + ' type="button" ' + 'onclick="getStudentInfo(this.id)"' + ' title="Edit">&#10140;</button>' +
+            '</td>'
         tr+='</tr>'
 
     })
     table.innerHTML+=tr;
 
     console.log(data)
+}
+
+
+async function getStudentInfo(id){
+
+        window.location.href = "../html/editStudent.html";
+        const api = '/RESTful_webservice_war_exploded/api/studenten/getStudent/' + id;
+        const response = await fetch(api);
+        //console.log(response);
+
+
+        const data = await response.json();
+        data.forEach(student =>{
+            let displayStudentInfo= `<li>${student.voornaam}</li>` + `<li>${student.achternaam}</li>`
+            document.querySelector('ul').insertAdjacentHTML('beforeend', displayStudentInfo);
+        });
+        console.log(data)
+
 }
 
 insertStudent()
