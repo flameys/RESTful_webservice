@@ -19,11 +19,13 @@ async function alleStudenten(){
             '<button id=' + student.id + ' type="button" ' + 'onclick="deleteStudent(this.id)"' + ' >Delete</button>' +
             '</td>' +
             '<td>'+  student.voornaam +'</td>' + '<td>'+student.achternaam+'</td>' + '<td>'+student.studentID +'</td>' +
-            '<td>'+student.studentDetail.geboorteDatum+'</td>' +  '<td>'+student.studentDetail.adress+ '</td>' + '<td>'+student.studentDetail.telefoon_nummer+'</td>' +
+            '<td>'+student.studentDetail.geboorteDatum+'</td>' +  '<td>'+student.studentDetail.adress+ '<button id=' + student.id + ' type="button" ' + 'onclick="editAdres(this.id)"' + ' >Edit</button>' + '</td>'
+            + '<td>'+student.studentDetail.telefoon_nummer+ '<button id=' + student.id + ' type="button" ' + 'onclick="editTel(this.id)"' + ' >Edit</button>' +'</td>'
+
             /*'<td>'+' <a class="terug" style="text-decoration: none; " href="../html/editStudent.html" title="Edit">&#10140;</a>'+'</td>'
-      */      '<td id="edit">' +
+           '<td id="edit">' +
             '<button class="terug" style="border: none" id=' + student.id + ' type="button" ' + 'onclick="getStudentInfo(this.id)"' + ' title="Edit">&#10140;</button>' +
-            '</td>'
+            '</td>'*/
         tr+='</tr>'
 
     })
@@ -35,7 +37,7 @@ async function alleStudenten(){
 
 async function getStudentInfo(id){
 
-        // window.location.href = "../html/editStudent.html";
+        window.location.href = "../html/editStudent.html";
         const api = '/RESTful_webservice_war_exploded/api/studenten/getStudent/' + id;
         const response = await fetch(api);
         //console.log(response);
@@ -50,14 +52,33 @@ async function getStudentInfo(id){
 
 }
 
-insertStudent1()
-async function insertStudent1(){
-    const formEl = document.getElementById('insertStudent');
-    formEl.addEventListener('submit', function (e){
+insertStudent2()
+async function insertStudent2(){
+    const form = document.getElementById('insertStudent');
+
+
+
+    form.addEventListener('submit', function (e){
         e.preventDefault();
 
-        const formData = new FormData(formEl)
-        const data = Object.fromEntries(formData)
+        const voornaam = document.getElementById('voornaam').value
+        const achternaam = document.getElementById('achternaam').value
+        const studentID = document.getElementById('studentID').value
+        const adres = document.getElementById('adres').value
+        const geboorte = document.getElementById('geboortedatum').value
+        const tel = document.getElementById('telno').value
+        const regDate = document.getElementById('datum').value
+
+        const data = {
+            'voornaam': voornaam,
+            'achternaam': achternaam,
+            'studentID': studentID,
+            'studentDetail': {'adress': adres,
+                'geboorteDatum': geboorte,
+                'telefoon_nummer': tel,
+                'enrolledDate': regDate
+            }
+        }
 
         const options = {
             method: "POST",
@@ -69,42 +90,12 @@ async function insertStudent1(){
         fetch('/RESTful_webservice_war_exploded/api/studenten/insert-student', options)
             .then(response => response.json())
             .then(data => console.log(data))
-/*
-        formEl.forEach(input => {
-            input.value = '';
-        });*/
+        /*
+                formEl.forEach(input => {
+                    input.value = '';
+                });*/
     })
 }
-/*
-insertStudent2()
-async function insertStudent2(){
-    const form = document.getElementById('insertStudent');
-    const voornaam = form.elements['voornaam'].value
-    const achternaam = form.elements['achternaam'].value
-    const studentID = form.elements['studentID'].value
-    const adres = form.elements['studentDetail.adress'].value
-    const geboorte = form.elements['studentDetail.geboorteDatum'].value
-    const tel = form.elements['studentDetail.telefoon_nummer'].value
-    const regDate = form.elements['studentDetail.enrolledDate'].value
-
-    const data = {voornaam, achternaam, studentID, adres, geboorte, tel, regDate}
-
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    };
-    fetch('/RESTful_webservice_war_exploded/api/studenten/insert-student', options)
-        .then(response => response.json())
-        .then(data => console.log(data))
-    /!*
-            formEl.forEach(input => {
-                input.value = '';
-            });*!/
-
-}*/
 
 async function deleteStudent(id){
 
@@ -121,5 +112,57 @@ async function deleteStudent(id){
                 response.json;
                 })
             .then(data => console.log('Succes!!'))
+
+}
+
+async function editAdres(id){
+    // const form = document.getElementById('insertStudent');
+    const editAdres = document.getElementById('adres')
+
+    const data = {
+        'studentDetail': {'adress': editAdres}
+    };
+
+    const options = {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+    };
+
+    fetch('/RESTful_webservice_war_exploded/api/studenten/update-student/'+ id, options)
+        .then(response =>{
+            if (!response.ok){
+                console.log('Problem')
+                return;
+            }
+            response.json;
+        })
+        .then(data => console.log('Succes!!'))
+
+}
+
+async function editTel(id){
+    // const form = document.getElementById('insertStudent');
+    const editTel = document.getElementById('telno')
+
+    const data = {
+        'studentDetail': {'telefoon_nummer': editTel}
+    };
+
+    const options = {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+    };
+
+    fetch('/RESTful_webservice_war_exploded/api/studenten/update-student/'+ id, options)
+        .then(response =>{
+            if (!response.ok){
+                console.log('Problem')
+                return;
+            }
+            response.json;
+        })
+        .then(data => console.log('Succes!!'))
 
 }

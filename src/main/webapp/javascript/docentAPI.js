@@ -19,11 +19,11 @@ async function alleDocenten(){
         tr+='<td>' +
             '<button id=' + docent.id + ' type="button" ' + 'onclick="deleteDocent(this.id)"' + ' >Delete</button>' +
             '</td>' +
-            '<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>' +
+            '<td>'+docent.voornaam+'</td>' + '<td>'+docent.naam+'</td>' + '<td>'+docent.datumIndienst+'</td>' + '<td>'+docent.categorie+'</td>' /*+
 
                 '<td>' +
             '<button class="terug" style="border: none" id=' + docent.id + ' type="button" ' + 'onclick="getOnderdelen(this.id)"' + ' title="Edit">&#10140;</button>' +
-                    '</td>'
+                    '</td>'*/
         tr+='</tr>'
 
     })
@@ -43,10 +43,11 @@ async function getOnderdelen(id){
 
     const data = await response.json();
     console.log(data)
+
     const result = JSON.stringify(data);
     console.log(result)
 
-    document.querySelector('ul').innerHTML = result;
+    // document.querySelector('ul').innerHTML = result;
     /*for (let i = 0; i < result; i++) {
         document.querySelector('ul').innerHTML = ;
     }*/
