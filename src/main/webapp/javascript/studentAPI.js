@@ -19,8 +19,8 @@ async function alleStudenten(){
             '<button id=' + student.id + ' type="button" ' + 'onclick="deleteStudent(this.id)"' + ' >Delete</button>' +
             '</td>' +
             '<td>'+  student.voornaam +'</td>' + '<td>'+student.achternaam+'</td>' + '<td>'+student.studentID +'</td>' +
-            '<td>'+student.studentDetail.geboorteDatum+'</td>' +  '<td>'+student.studentDetail.adress+ '<button id=' + student.id + ' type="button" ' + 'onclick="editAdres(this.id)"' + ' >Edit</button>' + '</td>'
-            + '<td>'+student.studentDetail.telefoon_nummer+ '<button id=' + student.id + ' type="button" ' + 'onclick="editTel(this.id)"' + ' >Edit</button>' +'</td>'
+            '<td>'+student.studentDetail.geboorteDatum+'</td>' +  '<td>'+student.studentDetail.adress+ '' + '<button id=' + student.id + ' type="button" ' + 'onclick="editAdres(this.id)"' + ' >Edit</button>' + '</td>'
+            + '<td>'+student.studentDetail.telefoon_nummer+ ' ' + '<button id=' + student.id + ' type="button" ' + 'onclick="editTel(this.id)"' + ' >Edit</button>' +'</td>'
 
             /*'<td>'+' <a class="terug" style="text-decoration: none; " href="../html/editStudent.html" title="Edit">&#10140;</a>'+'</td>'
            '<td id="edit">' +
@@ -88,8 +88,16 @@ async function insertStudent2(){
             body: JSON.stringify(data)
         };
         fetch('/RESTful_webservice_war_exploded/api/studenten/insert-student', options)
-            .then(response => response.json())
-            .then(data => console.log(data))
+            .then(response =>
+            {
+                if (!response.ok){
+                    console.log('Problem')
+                    return;
+                }
+                // response.json;
+                alleStudenten();
+            })
+            .then(data => console.log('yaay!'))
         /*
                 formEl.forEach(input => {
                     input.value = '';
@@ -109,60 +117,72 @@ async function deleteStudent(id){
                     console.log('Problem')
                     return;
                 }
-                response.json;
+                // response.json;
+                alleStudenten();
                 })
             .then(data => console.log('Succes!!'))
 
 }
 
 async function editAdres(id){
-    // const form = document.getElementById('insertStudent');
-    const editAdres = document.getElementById('adres')
+    document.getElementById('edit').style.display='block';
+    const form = document.getElementById('editStudentAdres');
 
-    const data = {
-        'studentDetail': {'adress': editAdres}
-    };
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    const options = {
-        method: "PUT",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-    };
+        const editAdres = document.getElementById('editAdres').value
 
-    fetch('/RESTful_webservice_war_exploded/api/studenten/update-student/'+ id, options)
-        .then(response =>{
-            if (!response.ok){
-                console.log('Problem')
-                return;
-            }
-            response.json;
-        })
-        .then(data => console.log('Succes!!'))
+       /* const nieuwAdres = {
+            adres: document.getElementById('editAdres').value
+        };*/
 
+        const options = {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: editAdres
+        };
+
+        fetch('/RESTful_webservice_war_exploded/api/studenten/update-studentAdres/' + id, options)
+            .then(response => {
+                if (!response.ok) {
+                    console.log('Problem: cannot update record')
+                    return;
+                }
+                // response.json;
+                alleStudenten();
+            })
+            .then(data => console.log('Data can be sent'))
+    })
 }
 
 async function editTel(id){
-    // const form = document.getElementById('insertStudent');
-    const editTel = document.getElementById('telno')
+    document.getElementById('editTel').style.display='block';
+    const form = document.getElementById('editStudentTelno');
 
-    const data = {
-        'studentDetail': {'telefoon_nummer': editTel}
-    };
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    const options = {
-        method: "PUT",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-    };
+        const editTel = document.getElementById('editTelef').value
 
-    fetch('/RESTful_webservice_war_exploded/api/studenten/update-student/'+ id, options)
-        .then(response =>{
-            if (!response.ok){
-                console.log('Problem')
-                return;
-            }
-            response.json;
-        })
-        .then(data => console.log('Succes!!'))
+        const options = {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: editTel
+        };
+
+        fetch('/RESTful_webservice_war_exploded/api/studenten/update-studentTelno/'+ id, options)
+            .then(response =>{
+                if (!response.ok){
+                    console.log('Problem: cannot update record')
+                    return;
+                }
+                // response.json;
+                alleStudenten();
+            })
+            .then(data => console.log('Data can be sent'))
+    })
+
+
 
 }

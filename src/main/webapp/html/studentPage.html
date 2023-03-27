@@ -98,14 +98,44 @@
 
                 <button id="submit" class="submitbutton" type="submit" onclick="document.getElementById('addStudent').style.display='none'">Submit</button>
 
+            </div>
 
+        </form>
+    </div>
+
+
+    <div id="edit" class="modal">
+
+        <form id="editStudentAdres" class="modal-content animate">
+
+            <div class="inputcontainer">
+
+                <label for="editAdres"><b>Adres</b></label>
+                <input type="text" id="editAdres">
+
+                <button id="saveAdres" class="submitbutton" type="submit" onclick="document.getElementById('edit').style.display='none'">Save</button>
 
             </div>
 
         </form>
     </div>
 
-    <ul></ul>
+    <div id="editTel" class="modal">
+
+        <form id="editStudentTelno" class="modal-content animate">
+
+            <div class="inputcontainer">
+
+                <label for="editTelef"><b>Telefoonno</b></label>
+                <input type="text" id="editTelef">
+
+                <button id="saveTelef" class="submitbutton" type="submit" onclick="document.getElementById('editTel').style.display='none'">Save</button>
+
+            </div>
+
+        </form>
+    </div>
+
 
     <script src="../javascript/studentAPI.js"></script>
 

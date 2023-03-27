@@ -42,27 +42,9 @@ public class StudentController {
         studentService.deleteStudent(delStudent);
     }
 
-    @Path("/update-student/{id}")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Student updateStudent(@PathParam("id") int id, Student student){
-        student.setId(id);
-        return studentService.updateStudent(student);
-    }
-
-
-    @Path("/update-studentDetail/{id}")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public StudentDetail updateStudentDetail(@PathParam("id") int id, Student student){
-       student.setId(id);
-        return studentDetailService.updateStudentDetail(student.getStudentDetail());
-    }
 
     @Path("/update-studentAdres/{id}")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public StudentDetail updateAdres(@PathParam("id") int id, String adres){
@@ -73,7 +55,7 @@ public class StudentController {
     }
 
     @Path("/update-studentTelno/{id}")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public StudentDetail updateTelno(@PathParam("id") int id, String tel){

@@ -75,8 +75,15 @@ async function insertDocent(){
             body: JSON.stringify(data)
         };
         fetch('/RESTful_webservice_war_exploded/api/docenten/insert-docent', options)
-            .then(response => response.json())
-            .then(data => console.log(data))
+            .then(response => {
+                if (!response.ok){
+                    console.log('Problem')
+                    return;
+                }
+                // response.json;
+                alleDocenten();
+            })
+            .then(data => console.log('yaay!'))
     })
 
 }
@@ -93,7 +100,8 @@ async function deleteDocent(id){
                 console.log('Problem')
                 return;
             }
-            response.json;
+            // response.json;
+            alleDocenten();
         })
         .then(data => console.log('Succes!!'))
 
